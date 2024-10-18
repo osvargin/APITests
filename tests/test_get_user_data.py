@@ -1,3 +1,4 @@
+import allure
 import httpx
 from jsonschema import validate
 
@@ -11,17 +12,23 @@ email_ends = "@reqres.in"
 avatar_ends = "-image.jpg"
 
 
+@allure.suite('Проверка запросов данных пользователей')
+@allure.title('Проверяем получение списка пользователей')
 def test_list_users():
-    url = base_url + list_users
+    with allure.step(f'Делаем запрос по адресу {base_url + list_users}'):
+        url = base_url + list_users
     response = httpx.get(url)
-    assert response.status_code == 200
+    with allure.step('Проверяем код ответа'):
+        assert response.status_code == 200
     data = response.json()["data"]
 
     for user in data:
-        validate(user, user_data_scheme)
-        assert user["email"].endswith(email_ends)
-        assert str(user["id"]) in user["avatar"]
-        assert user['avatar'].endswith(str(user['id']) + avatar_ends)
+        with allure.step('Проверяем элемент из списка'):
+            validate(user, user_data_scheme)
+            with allure.step('Проверяем окончание Email адреса'):
+                assert user["email"].endswith(email_ends)
+            with allure.step('Проверяем наличие id в ссылке на аватарку'):
+                assert user['avatar'].endswith(str(user['id']) + avatar_ends)
 
 
 def test_single_user():
