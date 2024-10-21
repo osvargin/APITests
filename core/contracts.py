@@ -32,3 +32,12 @@ create_user_scheme = {
     },
     "required": ["id"]
 }
+
+register_and_login_scheme = {
+    "type": "object",
+    "properties": {
+        "id": {"type": "integer"},
+        "token": {"type": "string"}
+    },
+    "required": ["token"]
+}

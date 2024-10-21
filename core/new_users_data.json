@@ -1,0 +1,18 @@
+[
+  {
+    "email": "george.bluth@reqres.in",
+    "password": "pistol"
+  },
+  {
+    "email": "janet.weaver@reqres.in",
+    "password": "pistol"
+  },
+  {
+    "email": "emma.wong@reqres.in",
+    "password": "pistol"
+  },
+  {
+    "email": "eve.holt@reqres.in",
+    "password": "pistol"
+  }
+]
