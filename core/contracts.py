@@ -47,5 +47,21 @@ register_and_login_scheme = {
         "id": {"type": "integer"},
         "token": {"type": "string"}
     },
+    "required": ["id", "token"]
+}
+
+register_unsuccessful_scheme = {
+    "type": "object",
+    "properties": {
+        "error": {"type": "string"}
+    },
+    "required": ["error"]
+}
+
+login_successful_scheme = {
+    "type": "object",
+    "properties": {
+        "token": {"type": "string"}
+    },
     "required": ["token"]
 }
