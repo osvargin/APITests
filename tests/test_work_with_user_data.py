@@ -33,6 +33,7 @@ def test_create_user_with_name_and_job():
     with allure.step('Проверяем что время создания = текущему времени'):
         assert creation_date[0:16] == current_date[0:16]
 
+
 @allure.suite('Проверка создания пользователя')
 @allure.title('Проверяем создания пользователя только с работой')
 def test_create_user_without_name():
@@ -53,6 +54,7 @@ def test_create_user_without_name():
         assert response.json()["job"] == body["job"]
     with allure.step('Проверяем что время создания = текущему времени'):
         assert creation_date[0:16] == current_date[0:16]
+
 
 @allure.suite('Проверка создания пользователя')
 @allure.title('Проверяем создания пользователя только с именем')
