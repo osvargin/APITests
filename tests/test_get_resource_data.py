@@ -9,6 +9,7 @@ list_resource = 'api/unknown'
 single_resource = 'api/unknown/2'
 not_found_resource = 'api/unknown/23'
 
+
 @allure.suite('Проверка запросов списка ресурсов')
 @allure.title('Проверяем получение списка ресурсов')
 def test_list_resource():
@@ -29,6 +30,7 @@ def test_list_resource():
     with allure.step('Проверяем что значение цвета начинается с #'):
         assert resource["color"].startswith('#')
 
+
 @allure.suite('Проверка запроса одного ресурса')
 @allure.title('Проверяем получение одного ресурса по id')
 def test_single_resource():
@@ -45,6 +47,7 @@ def test_single_resource():
         assert data["year"] - data["id"] == 1999
     with allure.step('Проверяем что значение цвета начинается с #'):
         assert data["color"].startswith('#')
+
 
 @allure.suite('Проверка запроса несуществующего ресурса')
 @allure.title('Проверяем получение ресурса по несуществующему id')
